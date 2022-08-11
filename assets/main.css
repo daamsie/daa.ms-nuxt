@@ -1,0 +1,107 @@
+/** 
+  RESET CSS 
+  From https: //www.joshwcomeau.com/css/custom-css-reset/
+**/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+  isolation: isolate;
+}
+
+/* 
+Base Site Styles 
+*/
+
+html {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif
+}
+
+:root {
+  --color-dark-raw: 34, 25, 2;
+  --color-extra-dark-raw: 22, 16, 1;
+  --color-extra-light-raw: 250, 246, 243;
+  --color-light-raw: 239, 231, 226;
+  --color-light: rgba(var(--color-light-raw), 1);
+  --color-extra-light: rgba(var(--color-extra-light-raw), 1);
+  --color-light-accent: #f0cb8d;
+  --color-brand: #e27933;
+  --color-dark: rgba(var(--color-dark-raw), 1);
+  --color-extra-dark: rgba(var(--color-extra-dark-raw), 1);
+  --color-dark-accent: #4158b2;
+
+  /* paddings */
+  --p-1: 0.5rem;
+  --p-2: 1rem;
+  --p-4: 2rem;
+}
+
+body {
+  background: var(--color-light);
+  color: var(--color-dark);
+}
+
+p {
+  margin-bottom: var(--p-2);
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+main.container {
+  padding: var(--p-1) var(--p-2);
+}
+
+@media(prefers-color-scheme: dark) {
+  body {
+    background: var(--color-dark);
+    color: var(--color-light);
+  }
+}
