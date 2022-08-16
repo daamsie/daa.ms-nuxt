@@ -4,7 +4,7 @@ import { defineNuxtConfig } from 'nuxt'
 export default defineNuxtConfig({
   ssr: false,
   nitro: {
-    preset: 'service-worker'
+    preset: 'netlify'
   },
   modules: [
     '@nuxt/content',
