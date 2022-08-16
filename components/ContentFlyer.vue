@@ -19,6 +19,14 @@
     // This does not happen without JS. 
     // TODO: add a fallback for no JS.. maybe?
     // TODO: move this to a composable function
+
+    const debounce =(method, delay) => {
+      clearTimeout(method._tId);
+      method._tId= setTimeout(function(){
+          method();
+      }, delay);
+    }
+
     const getFlyerRect = () => {
       const rect = document.getElementById(props.id).getBoundingClientRect();
       const top = rect.top;
@@ -30,7 +38,7 @@
         // in this scenario, left and right should be identical.
         right = rect.left;
       }
-      return {
+      cssVars.value = {
         '--top': `${top}px`,
         '--bottom': `${bottom}px`,
         '--left': `${left}px`,
@@ -38,12 +46,12 @@
       }
     }
     
-    cssVars.value = getFlyerRect();
+    getFlyerRect();
     window.addEventListener('resize', () => {
-      cssVars.value = getFlyerRect();
+      debounce(getFlyerRect, 100);
     }, true);
     window.addEventListener('scroll', () => {
-      cssVars.value = getFlyerRect();
+      debounce(getFlyerRect, 100);
     }, true);
   }
 
@@ -54,13 +62,13 @@
     <CancelButton v-if="show" @cancelled="$emit('closed')" />
 
     <h2>
-      <img :src="`/img/${data.logo}`" :alt="data.title" v-if="data.logo != null" />
-      <span v-else>{{data.title}}</span>
+      <LogoLoader :logo="data.logo" :color="show" />
+      <span v-if="data.logo == null">{{data.title}}</span>
     </h2>
     <!-- <p v-if="!show">
       {{data.description}}
     </p> -->
-    <div class="to-reveal" v-if="show">
+    <div class="to-reveal">
       <Prose>
         <ContentDoc :path="props.id" />
       </Prose>
@@ -78,7 +86,7 @@
     cursor: pointer;
     background: var(--color-extra-light);
     padding: 2rem;
-    transition: 1s all;
+    transition: 0.5s all;
     width: 100%;
     height: 100%;
     position: relative;
@@ -86,6 +94,9 @@
     border: 1px solid rgba(var(--color-dark-raw), 0.2);
     overflow-y: auto;
     --expanded-padding: 2rem;
+  }
+  section a {
+    color: var(--color-dark-accent);
   }
   @media screen and (min-width:768px) {
     section {
@@ -99,11 +110,6 @@
   h2 {
     margin-bottom: 1rem;
   } 
-  h2 img {
-    filter: grayscale(100%);
-    max-width: 100%;
-    max-height: 60px;
-  }
   p.tech {
     box-sizing: border-box;
     width: 100%;
@@ -115,13 +121,6 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
-  /* .close {
-    cursor: pointer;
-    position: absolute;
-    top: var(--p-2);
-    right: var(--p-2);
-    animation: fadeIn 1s;
-  } */
   section.showing {
     cursor: default;
     position: fixed;
@@ -133,7 +132,7 @@
     bottom: var(--p-2);
     top: var(--p-2);
     right: var(--p-2);
-    animation: expand 0.3s ease-in forwards;
+    animation: expand 0.2s ease-in forwards;
     box-shadow: 8px 10px 0 var(--color-light-accent);
     z-index: 9;
   }
@@ -145,9 +144,29 @@
     margin-bottom: 1.5rem;
     animation: grow 0.3s;
   }
+  section .to-reveal {
+    display: none;
+  }
   section.showing .to-reveal {
+    display: block;
     opacity: 1;
     animation: fadeIn 0.3s;
+  }
+  @media(prefers-color-scheme:dark) {
+    section {
+      background: var(--color-dark);
+      box-shadow: 2px 2px 0 var(--color-light-accent);
+      border: 1px solid rgba(var(--color-light-raw), 0.2);
+      color: var(--color-light);
+    }
+  }
+  @media(prefers-reduced-motion:reduce) {
+    section {
+      transition: none;
+    }
+    section.showing, section.showing .to-reveal, section.showing h2 {
+      animation: none;
+    }
   }
   @keyframes grow {
     from {

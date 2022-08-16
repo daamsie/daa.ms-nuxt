@@ -63,8 +63,8 @@ html {
 }
 
 :root {
-  --color-dark-raw: 34, 25, 2;
-  --color-extra-dark-raw: 22, 16, 1;
+  --color-dark-raw: 37, 35, 32;
+  --color-extra-dark-raw: 22, 23, 21;
   --color-extra-light-raw: 250, 246, 243;
   --color-light-raw: 239, 231, 226;
   --color-light: rgba(var(--color-light-raw), 1);
@@ -73,7 +73,7 @@ html {
   --color-brand: #e27933;
   --color-dark: rgba(var(--color-dark-raw), 1);
   --color-extra-dark: rgba(var(--color-extra-dark-raw), 1);
-  --color-dark-accent: #4158b2;
+  --color-dark-accent: rgba(47, 110, 49, 1);
 
   /* paddings */
   --p-1: 0.5rem;
@@ -99,9 +99,21 @@ main.container {
   padding: var(--p-1) var(--p-2);
 }
 
+a,
+a:visited,
+a:active {
+  color: var(--color-dark-accent);
+}
+
 @media(prefers-color-scheme: dark) {
   body {
-    background: var(--color-dark);
+    background: var(--color-extra-dark);
     color: var(--color-light);
+  }
+
+  a,
+  a:visited,
+  a:active {
+    color: var(--color-light-accent);
   }
 }

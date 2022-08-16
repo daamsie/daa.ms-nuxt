@@ -38,4 +38,13 @@
     border-bottom: 2px solid var(--color-light-accent);
     color: var(--color-brand);
   }
+  @media(prefers-color-scheme:dark) {
+    nav {
+      background: rgba(var(--color-dark-raw), 0.8);
+      color: var(--color-light);
+    } 
+    nav a {
+      color: var(--color-light);
+    }
+  }
 </style>

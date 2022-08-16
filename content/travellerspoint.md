@@ -1,7 +1,7 @@
 ---
 title: 'Travellerspoint'
 description: "Where it all began"
-logo: 'travellerspoint.svg'
+logo: 'travellerspoint'
 tech: 'Lucee, Vue.js, Node.js, Elasticsearch, AWS, MariaDB, Redis'
 ---
 

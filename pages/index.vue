@@ -17,6 +17,7 @@ const sections = [
     {id: 'iwtf' },
     {id: 'iktp' },
     {id: 'charitable' },
+    {id: 'wherdle' },
     {id: 'art' },
     {id: 'contact'},
   ] 
