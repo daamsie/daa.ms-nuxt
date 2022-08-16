@@ -5,7 +5,7 @@
   })
   
   const { data } = await useAsyncData(props.id, () => {
-    return queryContent(props.id).only(['title', 'description','tech']).findOne()
+    return queryContent(props.id).only(['title', 'description', 'tech', 'logo', 'url']).findOne()
   } );
   
   let cssVars = ref({
@@ -17,7 +17,8 @@
 
   if (typeof window !== 'undefined') {
     // This does not happen without JS. 
-    // TODO: add a fallback for no JS
+    // TODO: add a fallback for no JS.. maybe?
+    // TODO: move this to a composable function
     const getFlyerRect = () => {
       const rect = document.getElementById(props.id).getBoundingClientRect();
       const top = rect.top;
@@ -50,23 +51,30 @@
 
 <template>
   <section :class="{'showing': show}" :style="cssVars" ref="flyer" :id="props.id" >
-    <span v-if="props.show" @click.stop="$emit('closed')" class="close" aria-label="Close this">
-      Close
-    </span>
-    <h2>{{data.title}}</h2>
-    <p v-if="!show">
+    <CancelButton v-if="show" @cancelled="$emit('closed')" />
+
+    <h2>
+      <img :src="`/assets/${data.logo}`" alt="{{data.title}}" v-if="data.logo != null" />
+      <span v-else>{{data.title}}</span>
+    </h2>
+    <!-- <p v-if="!show">
       {{data.description}}
-    </p>
+    </p> -->
     <div class="to-reveal" v-if="show">
       <Prose>
         <ContentDoc :path="props.id" />
       </Prose>
     </div>
+
+    <p class="tech">
+      {{data.tech}}
+    </p>
   </section>
 </template>
 
 <style scoped>
   section {
+    box-sizing: border-box;
     cursor: pointer;
     background: var(--color-extra-light);
     padding: 2rem;
@@ -88,13 +96,32 @@
     z-index: 2;
     box-shadow: 4px 4px 0 var(--color-light-accent);
   }
-  .close {
+  h2 {
+    margin-bottom: 1rem;
+  } 
+  h2 img {
+    filter: grayscale(100%);
+    max-width: 100%;
+    max-height: 60px;
+  }
+  p.tech {
+    box-sizing: border-box;
+    width: 100%;
+    padding-top: 1rem;
+    border-top: 1px dashed #ccc;
+    font-family: monospace;
+    font-size: 1rem;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  /* .close {
     cursor: pointer;
     position: absolute;
     top: var(--p-2);
     right: var(--p-2);
     animation: fadeIn 1s;
-  }
+  } */
   section.showing {
     cursor: default;
     position: fixed;

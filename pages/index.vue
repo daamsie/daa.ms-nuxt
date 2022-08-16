@@ -38,7 +38,7 @@ const sections = [
   }
   .options {
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 100%;
     gap: var(--p-2);
   }
   .options div {
@@ -51,7 +51,7 @@ const sections = [
   }
   @media screen and (min-width: 768px) {
     .options {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: calc(50% - var(--p-1)) calc(50% - var(--p-1));
     } 
   }
 
