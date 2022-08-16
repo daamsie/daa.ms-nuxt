@@ -54,7 +54,7 @@
     <CancelButton v-if="show" @cancelled="$emit('closed')" />
 
     <h2>
-      <img :src="`/assets/${data.logo}`" alt="{{data.title}}" v-if="data.logo != null" />
+      <img :src="`/img/${data.logo}`" :alt="data.title" v-if="data.logo != null" />
       <span v-else>{{data.title}}</span>
     </h2>
     <!-- <p v-if="!show">
