@@ -1,6 +1,7 @@
 ---
 title: 'About me'
 description: "I'm sure you're interested"
+images: "me.jpg"
 ---
 
 Let me introduce myself.
@@ -16,8 +17,8 @@ That site is Travellerspoint.
 
 Since then I have also branched out to work on several other projects. I have worked on various websites, including popular travel websites I Want That Flight, I Know The Pilot and Travel Massive. I have also written several Wordpress plugins for Charitable - a popular suite of charity fundraising plugins.  
 
-My favourite part of creating websites is ensuring the interface and interaction is as simple as possible for users. 
+My favourite part of creating websites is ensuring the user experience is as simple as possible for users. Function over form.
 
 I enjoy learning new technologies and frameworks, and particularly enjoy working in Javascript.
 
-Aside from getting stuck into code, I also enjoy gardening, drawing and painting. Have a look at my art page for examples.
+Aside from getting stuck into code, I also enjoy gardening, drawing and painting. I've added a short section with some of my art.

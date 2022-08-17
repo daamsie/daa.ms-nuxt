@@ -5,8 +5,16 @@
   })
   
   const { data } = await useAsyncData(props.id, () => {
-    return queryContent(props.id).only(['title', 'description', 'tech', 'logo', 'url']).findOne()
+    return queryContent(props.id).only(['title', 'description', 'tech', 'logo', 'url', 'images']).findOne()
   } );
+
+  const images  = [];
+  
+  if (data.images != null) {
+    for (let image of data.images) {
+      images.push(image);
+    }
+  };
   
   let cssVars = ref({
       '--top': `0px`,
@@ -70,8 +78,9 @@
     </p> -->
     <div class="to-reveal">
       <Prose>
-        <ContentDoc :path="props.id" />
+        <ContentDoc :path="id" />
       </Prose>
+      <ImageGallery :images="data.images.split(',')" :folder="`/img/${id}`" v-if="data.images != null" />
     </div>
 
     <p class="tech">
@@ -144,11 +153,17 @@
     margin-bottom: 1.5rem;
     animation: grow 0.3s;
   }
+  section.showing p.tech {
+    overflow: visible;
+    white-space: normal;
+  }
   section .to-reveal {
     display: none;
   }
   section.showing .to-reveal {
-    display: block;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--p-4);
     opacity: 1;
     animation: fadeIn 0.3s;
   }

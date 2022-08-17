@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="container">
-      <NuxtLink to="/">Peter Daams</NuxtLink>
+      <span>Peter Daams</span>
     </div>
   </nav>
 </template>
@@ -26,7 +26,7 @@
     align-items: center;
     gap: 1rem;
   }
-  nav a {
+  nav span {
     padding: 1rem 1rem;
     color: var(--color-dark);
     font-weight: bold;
@@ -43,7 +43,7 @@
       background: rgba(var(--color-dark-raw), 0.8);
       color: var(--color-light);
     } 
-    nav a {
+    nav span {
       color: var(--color-light);
     }
   }

@@ -4,6 +4,7 @@ description: "Where the travel industry comes together"
 logo: "travelmassive"
 url: "https://www.travelmassive.com"
 tech: "Elixir, Phoenix, Tailwind, Vue.js, Postgres"
+images: "mobile.webp,search.webp"
 ---
 
 [Travel Massive](https://travelmassive.com/) is a large community of travel industry professionals. I helped at various stages of a redevelopment from 2020 to 2022. 

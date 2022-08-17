@@ -3,6 +3,7 @@ title: 'Wherdle'
 description: "Can you figure out today's mystery place"
 logo: 'wherdle'
 tech: "Svelte, Typescript, LocalStorage, Lucee, MySQL"
+images: 'wherdle.webp,stats.webp'
 ---
 
 [Wherdle](https://wherdle.travellerspoint.com) is my take on the daily game concept popularised by Wordle. 

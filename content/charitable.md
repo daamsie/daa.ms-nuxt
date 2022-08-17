@@ -1,7 +1,9 @@
 ---
 title: 'Charitable'
 description: 'Helping charities raise money'
+logo: 'charitable'
 tech: "Wordpress, Square API, Stripe API, React, JS"
+images: "progress.webp,products.webp,receipt.webp"
 ---
 
 [WP Charitable](https://www.wpcharitable.com/) is a popular Wordpress plugin built to help non-profits with their online fundraising efforts. 

@@ -20,6 +20,7 @@
     <IKTPLogo v-if="props.logo === 'iktp'" />
     <TravelMassiveLogo v-if="props.logo === 'travelmassive'" />
     <WherdleLogo v-if="props.logo === 'wherdle'" />
+    <CharitableLogo v-if="props.logo === 'charitable'" />
     <img v-if="isImage" :src="`/img/${logo}`" :alt="logo" />
   </div>
 </template>

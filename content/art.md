@@ -1,6 +1,9 @@
 ---
 title: 'Art'
 description: 'I like to draw and paint in my spare time'
+images: 'garden.webp,pickles.webp,kookaburra.webp,bike.webp,profile.webp'
 ---
 
-I have an Instagram account for my art - check it out at @daamsie_art
+Occasionally I like to pick up a pencil, brush or fineliner and create some art. 
+
+I'll include a few of my works here, but you can find a larger collection over at my Instagram account - [@daamsie_art](https://www.instagram.com/daamsie_art/)
