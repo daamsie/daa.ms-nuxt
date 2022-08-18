@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="container">
-      <span>Peter Daams</span>
+      <PeterDaamsLogo />
     </div>
   </nav>
 </template>
@@ -20,6 +20,8 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    max-height: 100px;
+    padding: var(--p-4);
   }
   .links {
     display: flex;
