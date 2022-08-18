@@ -10,7 +10,7 @@ images: 'be-the-first.webp,subscribe.webp,deal.webp'
 
 I have helped develop this site in numerous ways. 
 
-* Designed and implemented the web front end (.NET, CSS, JS)
-* Built a standalone API that handles the sending of emails to the subscribers (.NET)
-* Created a dashboard to monitor campaign progress (Vue.js). 
-* Designed Email templates for deals (HTML, CSS)
+* Designed and implemented the web front end 
+* Built a standalone API that handles the sending of emails to the subscribers
+* Created a dashboard to monitor campaign progress 
+* Designed Email templates for deals
