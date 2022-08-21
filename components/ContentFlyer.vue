@@ -67,15 +67,13 @@
 
 <template>
   <section :class="{'showing': show}" :style="cssVars" ref="flyer" :id="props.id" >
-    <CancelButton v-if="show" @cancelled="$emit('closed')" />
-
-    <h2>
-      <LogoLoader :logo="data.logo" :color="show" />
-      <span v-if="data.logo == null">{{data.title}}</span>
-    </h2>
-    <!-- <p v-if="!show">
-      {{data.description}}
-    </p> -->
+    <div class="top-bar">
+      <CancelButton v-if="show" @cancelled="$emit('closed')" />
+      <h2>
+        <LogoLoader :logo="data.logo" :color="show" />
+        <span v-if="data.logo == null">{{data.title}}</span>
+      </h2>
+     </div>
     <div class="to-reveal">
       <Prose>
         <ContentDoc :path="id" />
@@ -148,9 +146,17 @@
   section.showing:hover {
     transform: scale(1);
   }
+  section.showing .top-bar {
+    position: sticky;
+    top: calc(var(--expanded-padding) * -1);
+    backdrop-filter: blur(15px);
+    margin-bottom: 1.5rem;
+    height: 80px;
+    padding-top: 8px;
+  }
   section.showing h2 {
     font-size: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0;
     animation: grow 0.3s;
   }
   section.showing p.tech {
