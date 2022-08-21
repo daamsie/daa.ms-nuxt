@@ -1,7 +1,7 @@
 ---
 title: 'Wherdle'
 description: "Can you figure out today's mystery place"
-logo: 'wherdle'
+logo: 'wherdle.svg'
 tech: "Svelte, Typescript, LocalStorage, Lucee, MySQL"
 images: 'wherdle.webp,stats.webp'
 ---

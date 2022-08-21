@@ -9,7 +9,7 @@
       if (props.logo == null) {
         return false;
       }
-      return props.logo.match(/\.(jpeg|jpg|gif|png)$/) !== null
+      return props.logo.match(/\.(jpeg|jpg|gif|png|svg)$/) !== null
     }
   }) 
 </script>
@@ -19,7 +19,6 @@
     <TravellerspointLogo v-if="props.logo === 'travellerspoint'" />
     <IKTPLogo v-if="props.logo === 'iktp'" />
     <TravelMassiveLogo v-if="props.logo === 'travelmassive'" />
-    <WherdleLogo v-if="props.logo === 'wherdle'" />
     <CharitableLogo v-if="props.logo === 'charitable'" />
     <img v-if="isImage" :src="`/img/${logo}`" :alt="logo" />
   </div>
