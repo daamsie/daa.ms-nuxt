@@ -14,7 +14,7 @@
     top: 0;
     margin-bottom: 1rem;
     backdrop-filter: blur(5px);
-    z-index: 2;
+    z-index: 3;
   }
   nav .container {
     display: flex;
